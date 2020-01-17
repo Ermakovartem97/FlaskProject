@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Мызыкальные эксперименты</title>
+    <style>
+   body {
+    background-image: url(image/1.jpg);
+   }
+   .container {
+    padding: 20px;
+    color: red;
+   }
+  </style>
+</head>
+<body>
+<header>
+    <div class="container"><a href="/"> Музыкальные эксперименты </a></div>
+</header>
+<center>
+    <div style="background-image: url(backGr.jpg);"><span>ghbdtn</span></div>
+    {% if args["method"] == "POST" %}
+        {% if args["file_size_error"] %}
+            <h1>Размер файла превышает 1мб.!</h1>
+        {% else %}
+            <h1>Файл успешно загружен.</h1>
+            <a href="{{ url_for('getfile', name = '1.txt') }}">Скачать</a>
+        {% endif %}
+    {% endif %}
+    <form action="/" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <button type="submit">Загрузить</button>
+    </form>
+</center>
+</body>
+</html>
